@@ -12,11 +12,27 @@ body {
     font-weight: 400;
 }
 
-#wrap {
-    position: relative;
-	width: 1280px;
-	height: 720px;
-	background: url('../img/layout.png') no-repeat 50% 50%;
+.wrap {
+	overflow: hidden;
+	min-height: 100%;
+	min-width: 780px;
+	#gradient > .directional(#856dd8, #2328ae, 145deg);
+}
+
+.content {
+	text-align: center;
+
+	&:before {
+		content: "";
+		height: 100%;
+		width: 0;
+	}
+
+	&:before,
+	> .promo {
+		display: inline-block;
+		vertical-align: middle;
+	}
 }
 
 * {
@@ -26,19 +42,15 @@ body {
 
 // Typography
 h1, h2 {
-	text-align: center;
-	text-transform: uppercase;
-	font-family: @extraFontFamily;
+
 }
 
 h1 {
-	font-size: 62px;
-	line-height: 64px;
+
 }
 
 h2 {
-	font-size: 34px;
-	line-height: 42px;
+
 }
 
 h3 {
@@ -68,74 +80,78 @@ a {
 	}
 }
 
-.logo {
-
+.promo {
+	width: 720px;
+	padding: 30px;
+	background-color: @white;
+	text-align: left;
+	.border-radius(6px);
+	.box-shadow(~'0 10px 20px rgba(0, 0, 0, 0.1)');
 }
 
-.copy {
+.select2-container {
+	&.select2-container--default {
+		&.select2-container--default.select2-container--open {
+			.select2-dropdown {
+				margin-top: 8px;
+				border: 1px solid @formControlBorderColor;
+			}
 
-}
-
-.inner {}
-
-.step {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 10;
-	display: none;
-
-	&.active {display: block;}
-
-	&.step_1 {
-		h1 {
-			margin: 0px 0px 20px;
+			.select2-selection--single {
+				.select2-selection__arrow b {
+					border-width: 0 5px 7px 5px;
+				}
+			}
 		}
 
-		.form {
-			.text {margin-bottom: 12px;}
+		.select2-selection--single {
+			background-color: transparent;
+			height: auto;
+			border: none;
+			.border-radius(6px);
+
+			.select2-selection__rendered {
+				padding-left: 18px;
+				padding-right: 32px;
+				line-height: 56px;
+			}
+
+			.select2-selection__arrow {
+				width: 10px;
+				height: 10px;
+				top: 23px;
+				right: 18px;
+			}
+
+			.select2-selection__arrow b {
+				margin-left: -5px;
+				border-width: 7px 5px 0 5px;
+			}
 		}
 	}
-
-	&.step_2 {
-		background: url('../img/layout-step2.png') no-repeat 0 74px;
-
-		h1 {
-			margin: 0 0 30px;
-		}
-
-		h2 {margin: 0 0 24px;}
-
-		.form {
-			margin-top: 70px;
-
-			.text {margin-bottom: 0;}
-		}
-	}
 }
 
-.form {
-	input[type="text"] {
-		position: relative;
-		border: none;
-		height: 76px;
-		width: 420px;
-		padding: 0px 10px;
-		font-size: 34px;
+form {
+	.input-group {
+		margin-bottom: 22px;
+	}
+
+	input {
+		padding: 0 20px;
+	}
+
+	input, select, .select2-container {
+		border: 1px solid @formControlBorderColor;
+		height: 58px;
+		width: 300px;
 		.box-sizing(border-box);
 		.border-radius(10px);
+		font-size: 16px;
+		font-weight: 500;
 
 		&:focus {
-			outline: none;
-			border: 3px solid @blue;
+			border-color: @formControlFocusBorderColor;
 		}
-	}
-
-	input, select {
-		&:focus,
-		&:active {outline: none;}
 	}
 }
 
