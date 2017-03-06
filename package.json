@@ -1,0 +1,26 @@
+{
+  "name": "mos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "less": "^2.7.2",
+    "select2": "^4.0.3",
+    "webpack": "^2.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denis862008/mos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denis862008/mos/issues"
+  },
+  "homepage": "https://github.com/denis862008/mos#readme"
+}
