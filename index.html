@@ -12,19 +12,19 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <div class="input-group">
+                            <div class="input-group required error">
                                 <input type="text" id="name" placeholder="Введите Ф.И.О.">
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="input-group">
+                            <div class="input-group required">
                                 <label for="password">Пароль</label>
                                 <input type="password" id="password">
                                 <span class="icon icon-closed-eye"></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="input-group">
+                            <div class="input-group required">
                                 <label for="email">Email</label>
                                 <input type="email" id="email">
                             </div>
@@ -42,6 +42,19 @@
                         </div>
                     </div>
                     <div class="col">
+                        <div class="info">
+                            <img src="img/ilustration.svg" alt="" class="fl-l">
+                            <ol class="">
+                                <li>Развивайтесь не смотря ни на что</li>
+                                <li>Не повторяйте за тем, кто повторяет</li>
+                            </ol>
+                        </div>
+
+                        <label class="js-check">
+                            <input type="checkbox">
+                            Я прочитал и соглашаюсь <br><a href="">с правилами</a> участия в акции.
+                        </label>
+
                         <input type="submit" value="Участвовать" id="accept" class="btn btn_blue btn_promo-accept">
                     </div>
                 </div>

@@ -69,6 +69,8 @@ window.addEventListener('load', function() {
             }
         ];
 
+    $(".js-check input").iCheck();
+
     if(!window.location.host) {
         $('select').select2({
             data: staticCities,

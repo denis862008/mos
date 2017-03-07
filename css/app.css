@@ -39,6 +39,7 @@ body {
   outline: none;
 }
 a {
+  color: #2328ae;
   border: 0 none;
   text-decoration: none;
   outline: none;
@@ -51,6 +52,35 @@ a img {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   border: 0 none;
+}
+.fl-l {
+  float: left;
+}
+.fl-r {
+  float: right;
+}
+ol {
+  margin: 0;
+  padding: 0;
+  counter-reset: number;
+  font-weight: 300;
+}
+ol li {
+  position: relative;
+  list-style-type: none;
+  padding-left: 24px;
+  margin-top: 19px;
+}
+ol li:first-child {
+  margin-top: 0;
+}
+ol li:before {
+  counter-increment: number;
+  content: counter(number) ". ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 700;
 }
 .row {
   *zoom: 1;
@@ -75,6 +105,22 @@ a img {
 .icon {
   display: inline-block;
 }
+.info {
+  margin-bottom: 22px;
+  *zoom: 1;
+}
+.info:before,
+.info:after {
+  content: " ";
+  display: table;
+  line-height: 0;
+}
+.info:after {
+  clear: both;
+}
+.info ol {
+  margin-left: 103px;
+}
 .promo {
   width: 720px;
   padding: 30px 30px 58px;
@@ -86,7 +132,7 @@ a img {
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-.promo form label {
+.promo form .input-group label {
   position: absolute;
   top: 7px;
   left: 20px;
@@ -94,7 +140,7 @@ a img {
   font-weight: 400;
   color: #808890;
 }
-.promo form label + input {
+.promo form .input-group label + input {
   padding-top: 16px;
 }
 .promo .icon {
@@ -150,13 +196,51 @@ form .form-group {
 form .input-group {
   position: relative;
 }
-form input {
+form .input-group.required:after {
+  position: absolute;
+  content: "*";
+  top: 0;
+  bottom: 0;
+  right: -18px;
+  width: 8px;
+  height: 16px;
+  margin: auto;
+  color: #e63333;
+  font-size: 18px;
+  font-weight: bold;
+}
+form .input-group.error input[type="text"],
+form .input-group.error input[type="password"],
+form .input-group.error input[type="email"] {
+  color: #e63333;
+  border-color: #e63333;
+}
+form .input-group.error input[type="text"]::-webkit-input-placeholder,
+form .input-group.error input[type="password"]::-webkit-input-placeholder,
+form .input-group.error input[type="email"]::-webkit-input-placeholder {
+  color: #e63333;
+}
+form .input-group.error input[type="text"]::-moz-placeholder,
+form .input-group.error input[type="password"]::-moz-placeholder,
+form .input-group.error input[type="email"]::-moz-placeholder {
+  color: #e63333;
+}
+form .input-group.error input[type="text"]:-moz-placeholder,
+form .input-group.error input[type="password"]:-moz-placeholder,
+form .input-group.error input[type="email"]:-moz-placeholder {
+  color: #e63333;
+}
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
   padding: 0 20px;
 }
-form input#password {
+form input[type="password"] {
   padding-right: 50px;
 }
-form input,
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
 form select,
 form .select2-container {
   border: 1px solid #b0b7be;
@@ -171,7 +255,9 @@ form .select2-container {
   font-size: 16px;
   font-weight: 500;
 }
-form input:focus,
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
 form select:focus,
 form .select2-container:focus {
   border-color: #636f7b;
@@ -190,6 +276,33 @@ input:focus::-webkit-input-placeholder {
 }
 input:focus:-moz-placeholder {
   color: transparent;
+}
+.js-check {
+  display: inline-block;
+  position: relative;
+  padding-left: 36px;
+  font-weight: 300;
+  margin-bottom: 22px;
+  cursor: pointer;
+}
+.js-check input {
+  margin: 0;
+}
+.js-check .icheckbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #b0b7be;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.js-check .icheckbox.checked {
+  background-color: #b0b7be;
 }
 .btn {
   position: relative;

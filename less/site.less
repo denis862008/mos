@@ -64,6 +64,7 @@ h4 {
 
 
 a {
+	color: @blue;
 	border: 0 none;
 	text-decoration: none;
 	outline: none;
@@ -76,6 +77,37 @@ a {
 
 	&:hover {
 		//color: @linkColorHover;
+	}
+}
+
+.fl-l {float: left;}
+
+.fl-r {float: right;}
+
+ol {
+	margin: 0;
+	padding: 0;
+	counter-reset: number;
+	font-weight: 300;
+
+	li {
+		position: relative;
+		list-style-type: none;
+		padding-left: 24px;
+		margin-top: 19px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:before {
+			counter-increment: number;
+			content: counter(number) ". ";
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-weight: 700;
+		}
 	}
 }
 
@@ -97,6 +129,15 @@ a {
 	display: inline-block;
 }
 
+.info {
+	margin-bottom: 22px;
+	.clearfix;
+
+	ol {
+		margin-left: 103px;
+	}
+}
+
 .promo {
 	width: 720px;
 	padding: 30px 30px 58px;
@@ -106,16 +147,18 @@ a {
 	.box-shadow(~'0 10px 20px rgba(0, 0, 0, 0.1)');
 
 	form {
-		label {
-			position: absolute;
-			top: 7px;
-			left: 20px;
-			font-size: 14px;
-			font-weight: 400;
-			color: @steel;
+		.input-group {
+			label {
+				position: absolute;
+				top: 7px;
+				left: 20px;
+				font-size: 14px;
+				font-weight: 400;
+				color: @steel;
 
-			+ input {
-				padding-top: 16px;
+				+ input {
+					padding-top: 16px;
+				}
 			}
 		}
 	}
@@ -190,17 +233,58 @@ form {
 
 	.input-group {
 		position: relative;
-	}
 
-	input {
-		padding: 0 20px;
+		&.required {
+			&:after {
+				position: absolute;
+				content: "*";
+				top: 0;
+				bottom: 0;
+				right: -18px;
+				width: 8px;
+				height: 16px;
+				margin: auto;
+				color: @red;
+				font-size: 18px;
+				font-weight: bold;
+			}
+		}
 
-		&#password {
-			padding-right: 50px;
+		&.error {
+			input[type="text"],
+			input[type="password"],
+			input[type="email"] {
+				color: @red;
+				border-color: @red;
+
+				&::-webkit-input-placeholder {
+					color: @red;
+				}
+
+				&::-moz-placeholder {
+					color: @red;
+				}
+
+				&:-moz-placeholder {
+					color: @red;
+				}
+			}
 		}
 	}
 
-	input, select, .select2-container {
+	input[type="text"],
+	input[type="password"],
+	input[type="email"] {
+		padding: 0 20px;
+	}
+
+	input[type="password"] {padding-right: 50px;}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select,
+	.select2-container {
 		border: 1px solid @formControlBorderColor;
 		height: 58px;
 		width: 300px;
@@ -228,6 +312,33 @@ form {
 
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
+
+.js-check {
+	display: inline-block;
+	position: relative;
+	padding-left: 36px;
+	font-weight: 300;
+	margin-bottom: 22px;
+	cursor: pointer;
+
+	input {margin: 0;}
+
+	.icheckbox {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: auto;
+		display: block;
+		width: 24px;
+		height: 24px;
+		border: 1px solid @formControlBorderColor;
+		.border-radius(6px);
+
+		&.checked {
+			background-color: @formControlBorderColor;
+		}
+	}
+}
 
 .btn {
 	position: relative;
