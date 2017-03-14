@@ -41,27 +41,17 @@ body {
 
 // Typography
 h1, h2 {
-
+	margin: 0 0 28px;
 }
 
-h1 {
-
-}
+h1 {}
 
 h2 {
 	font-size: 26px;
+	line-height: 28px;
 }
 
-h3 {
-	//font-size: 18px;
-	//line-height: 20px;
-}
-
-h4 {
-	//font-size: 15px;
-	//line-height: 17px;
-}
-
+h3 {}
 
 a {
 	color: @blue;
@@ -144,6 +134,7 @@ ol {
 	background-color: @white;
 	text-align: left;
 	.border-radius(6px);
+	.box-sizing(border-box);
 	.box-shadow(~'0 10px 20px rgba(0, 0, 0, 0.1)');
 
 	form {
@@ -170,10 +161,13 @@ ol {
 		right: 15px;
 		width: 26px;
 		height: 13px;
-		font-size: 13px;
+		text-align: center;
 		margin: auto;
 		cursor: pointer;
 		color: @steel;
+
+		&.icon-closed-eye {font-size: 13px;}
+		&.icon-opened-eye {font-size: 15px;}
 	}
 }
 
@@ -299,16 +293,9 @@ form {
 	}
 }
 
-::-webkit-input-placeholder {
-	color: @black;
-}
-::-moz-placeholder {
-	color: @black;
-}
-
-:-moz-placeholder {
-	color: @black;
-}
+::-webkit-input-placeholder {color: @black;}
+::-moz-placeholder {color: @black;}
+:-moz-placeholder {color: @black;}
 
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
@@ -318,7 +305,7 @@ input:focus:-moz-placeholder { color:transparent; }
 	position: relative;
 	padding-left: 36px;
 	font-weight: 300;
-	margin-bottom: 22px;
+	//margin-bottom: 22px;
 	cursor: pointer;
 
 	input {margin: 0;}
@@ -337,6 +324,61 @@ input:focus:-moz-placeholder { color:transparent; }
 		&.checked {
 			background-color: @formControlBorderColor;
 		}
+	}
+}
+
+.upload {
+	position: relative;
+	padding: 20px;
+	margin: 42px -40px 41px 0;
+	background-color: @butterScotch;
+	.border-radius(6px 6px 0 6px);
+
+	&:after {
+		position: absolute;
+		bottom: -10px;
+		right: 0;
+		content: '';
+		width: 10px;
+		height: 10px;
+		.border-radius(0 0 10px 0);
+		background-color: @goldenBrown;
+	}
+
+	.up-file {
+		height: 118px;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 118px;
+		color: @white;
+
+		input {
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+		}
+	}
+}
+
+.up-file {
+	position: relative;
+	display: block;
+	border: 2px dashed @white;
+	overflow: hidden;
+	filter: none;
+	cursor: pointer;
+	.border-radius(6px);
+
+	input {
+		position: absolute;
+		border: none;
+		font-family: @baseFontFamily;
+		cursor: pointer;
+		font-size: 118px;
+		.opacity(0);
 	}
 }
 
@@ -372,5 +414,88 @@ input:focus:-moz-placeholder { color:transparent; }
 		&:hover {
 			background-color: lighten(@blue, 15%);
 		}
+	}
+}
+
+.gender-section {
+	margin-top: 32px;
+	text-align: center;
+
+	> * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	label {
+		position: relative;
+		color: @black;
+		cursor: pointer;
+
+		&.selected {
+			//font-weight: 500;
+			color: @iris;
+			cursor: default;
+		}
+	}
+
+	.toggle-section {
+		position: relative;
+		width: 54px;
+		height: 30px;
+		border: 1px solid @formControlBorderColor;
+		margin: 0px 14px;
+		.border-radius(25px);
+
+		.toggler {
+			position: absolute;
+			top: 3px;
+			bottom: 3px;
+			width: 24px;
+			height: 24px;
+			background-color: @iris;
+			.border-radius(24px);
+		}
+	}
+
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		.opacity(0);
+	}
+}
+
+.animation-toggle {
+	animation-duration: 0.2s;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+
+	&[data-bind="male"] {
+		animation-name: animateLeft;
+	}
+
+	&[data-bind="female"] {
+		animation-name: animateRight;
+	}
+}
+
+@keyframes animateLeft {
+	from {
+		left: 28px;
+	}
+
+	to {
+		left: 2px;
+	}
+}
+
+@keyframes animateRight {
+	from {
+		left: 2px;
+	}
+
+	to {
+		left: 28px;
 	}
 }

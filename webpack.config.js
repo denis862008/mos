@@ -3,7 +3,8 @@ var webpack = require('webpack');
 module.exports = {
     context: __dirname + '/js/src',
     entry: {
-        main: './main.js'
+        main: './main.js',
+        common: './common.js'
     },
     output: {
         path: __dirname + '/js/dist',
@@ -22,5 +23,6 @@ module.exports = {
             name: 'common',
             chunks: ['main']
         })
-    ]
+    ],
+    devtool: 'cheap-inline-module-source-map'
 };

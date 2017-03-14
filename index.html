@@ -21,7 +21,7 @@
                             <div class="input-group required">
                                 <label for="password">Пароль</label>
                                 <input type="password" id="password">
-                                <span class="icon icon-closed-eye"></span>
+                                <span id="show-pass" class="icon icon-closed-eye"></span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -38,8 +38,24 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <label for="phone">Телефон</label>
-                                <input type="text" id="phone">
+                                <input type="text" id="phone" data-mask="+7 (000) 000-00-00">
                             </div>
+                        </div>
+
+                        <div class="gender-section">
+                            <label data-target="male">
+                                <input type="radio">
+                                Я - парень
+                            </label>
+
+                            <div class="toggle-section">
+                                <div class="toggler animation-toggle" data-bind="female"></div>
+                            </div>
+
+                            <label data-target="female" class="selected">
+                                <input type="radio">
+                                Я - девушка
+                            </label>
                         </div>
                     </div>
                     <div class="col">
@@ -56,6 +72,10 @@
                             <input type="checkbox">
                             Я прочитал и соглашаюсь <br><a href="">с правилами</a> участия в акции.
                         </label>
+
+                        <div class="upload">
+                            <span class="up-file">загрузить фото<input type="file" name="" id=""></span>
+                        </div>
 
                         <input type="submit" value="Участвовать" id="accept" class="btn btn_blue btn_promo-accept">
                     </div>

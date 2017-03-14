@@ -1,8 +1,4 @@
-var vendors = require('./init.js');
-
-(function() {
-    vendors();
-})();
+var Toggler = require('./toggler.js');
 
 window.addEventListener('load', function() {
     var cities = [],
@@ -69,7 +65,28 @@ window.addEventListener('load', function() {
             }
         ];
 
+    var toggler = new Toggler();
+    var pass = document.getElementById('password'),
+        showPass = document.getElementById('show-pass');
+
+    showPass.addEventListener('mousedown', function(e) {
+        var btn = e.target;
+
+        btn.classList.remove('icon-closed-eye');
+        btn.classList.add('icon-opened-eye');
+        pass.setAttribute('type', 'text');
+    });
+
+    showPass.addEventListener('mouseup', function(e) {
+        var btn = e.target;
+
+        btn.classList.remove('icon-opened-eye');
+        btn.classList.add('icon-closed-eye');
+        pass.setAttribute('type', 'password');
+    });
+
     $(".js-check input").iCheck();
+    // $('#phone').mask('+7 (000) 000-00-00');
 
     if(!window.location.host) {
         $('select').select2({

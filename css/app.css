@@ -22,6 +22,7 @@ body {
   background-image: -webkit-linear-gradient(145deg, #856dd8, #2328ae);
   background-image: -o-linear-gradient(145deg, #856dd8, #2328ae);
   background-image: linear-gradient(145deg, #856dd8, #2328ae);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff856dd8', endColorstr='#ff2328ae', GradientType=0);
   text-align: center;
 }
 .wrap:before {
@@ -37,6 +38,14 @@ body {
 *:focus,
 *:active {
   outline: none;
+}
+h1,
+h2 {
+  margin: 0 0 28px;
+}
+h2 {
+  font-size: 26px;
+  line-height: 28px;
 }
 a {
   color: #2328ae;
@@ -129,6 +138,9 @@ ol li:before {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -150,10 +162,16 @@ ol li:before {
   right: 15px;
   width: 26px;
   height: 13px;
-  font-size: 13px;
+  text-align: center;
   margin: auto;
   cursor: pointer;
   color: #808890;
+}
+.promo .icon.icon-closed-eye {
+  font-size: 13px;
+}
+.promo .icon.icon-opened-eye {
+  font-size: 15px;
 }
 .select2-container.select2-container--default.select2-container--default.select2-container--open .select2-dropdown {
   border: 1px solid #b0b7be;
@@ -282,7 +300,6 @@ input:focus:-moz-placeholder {
   position: relative;
   padding-left: 36px;
   font-weight: 300;
-  margin-bottom: 22px;
   cursor: pointer;
 }
 .js-check input {
@@ -303,6 +320,62 @@ input:focus:-moz-placeholder {
 }
 .js-check .icheckbox.checked {
   background-color: #b0b7be;
+}
+.upload {
+  position: relative;
+  padding: 20px;
+  margin: 42px -40px 41px 0;
+  background-color: #ffc739;
+  -webkit-border-radius: 6px 6px 0 6px;
+  -moz-border-radius: 6px 6px 0 6px;
+  border-radius: 6px 6px 0 6px;
+}
+.upload:after {
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  content: '';
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 0 0 10px 0;
+  -moz-border-radius: 0 0 10px 0;
+  border-radius: 0 0 10px 0;
+  background-color: #b58200;
+}
+.upload .up-file {
+  height: 118px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 118px;
+  color: #ffffff;
+}
+.upload .up-file input {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.up-file {
+  position: relative;
+  display: block;
+  border: 2px dashed #ffffff;
+  overflow: hidden;
+  filter: none;
+  cursor: pointer;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.up-file input {
+  position: absolute;
+  border: none;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  font-size: 118px;
+  opacity: 0;
+  filter: alpha(opacity=0);
 }
 .btn {
   position: relative;
@@ -337,4 +410,77 @@ input:focus:-moz-placeholder {
 }
 .btn.btn_promo-accept:hover {
   background-color: #4449d9;
+}
+.gender-section {
+  margin-top: 32px;
+  text-align: center;
+}
+.gender-section > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.gender-section label {
+  position: relative;
+  color: #000000;
+  cursor: pointer;
+}
+.gender-section label.selected {
+  color: #5b50c6;
+  cursor: default;
+}
+.gender-section .toggle-section {
+  position: relative;
+  width: 54px;
+  height: 30px;
+  border: 1px solid #b0b7be;
+  margin: 0px 14px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+}
+.gender-section .toggle-section .toggler {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: #5b50c6;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+  border-radius: 24px;
+}
+.gender-section input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.animation-toggle {
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+.animation-toggle[data-bind="male"] {
+  animation-name: animateLeft;
+}
+.animation-toggle[data-bind="female"] {
+  animation-name: animateRight;
+}
+@keyframes animateLeft {
+  from {
+    left: 28px;
+  }
+  to {
+    left: 2px;
+  }
+}
+@keyframes animateRight {
+  from {
+    left: 2px;
+  }
+  to {
+    left: 28px;
+  }
 }

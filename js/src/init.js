@@ -4,4 +4,5 @@ module.exports = function() {
 
     require('select2/dist/js/select2.full.js');
     require('../lib/icheck.js');
+    require('../lib/jquery.mask.min.js');
 };
